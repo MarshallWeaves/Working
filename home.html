@@ -1,0 +1,245 @@
+
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="localhost:5000/js/scripts.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 140%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      position: fixed;
+      height: 50px;
+      bottom: 0;
+      width: 100%;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+      
+    .avatar {
+        vertical-align: middle;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+      }
+  
+    .dialogIsOpen #page-wrap {
+
+        /* Blur and de-color */
+        -webkit-filter: blur(5px) grayscale(50%);
+
+        /* Recede */
+        -webkit-transform: scale(0.9);
+      }
+    .dialogIsOpen #modal {
+  
+        /* Regular size and visible */
+        transform: scale(1); /* prefix me */
+        opacity: 1;
+        
+        /* Clickable */
+        pointer-events: auto;
+
+}
+      #page-wrap, #modal {
+  
+  transition: all 0.4s ease; /* prefix me */
+
+}
+@include transition(all 0.4s ease);
+@include filter(blur(5px) grayscale(50%));
+@include transform(scale(0.9));
+
+   
+</style>
+<script>
+  
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+    
+    $(window).on('load',function(){
+        $('#modal').modal('show');
+    
+        
+    // State changes
+    $("#close").on("click", function() {
+        $("body").toggleClass("dialogIsOpen");
+    });
+    $("body").toggleClass("dialogIsOpen");
+        $('#modal').modal('show');
+    });
+     $("#login").on("click", function() {
+        $("body").toggleClass("dialogIsOpen");
+    });
+    
+    /*$("btn btn-success btn-lg float-right").on("click", function() {
+        // State changes
+        $("body").toggleClass("dialogIsOpen");
+        $('#modal').modal.hide;
+    });
+    $("btn btn-outline-secondary btn-lg").on("click", function() {
+        // State changes
+        $("body").toggleClass("dialogIsOpen");
+        $('#loginModal').modal.hide;
+    });*/
+
+   
+
+  
+</script>
+</head>
+
+
+
+
+<body>
+    
+      <div id="page-wrap">
+   <div id="main" class="dialogIsOpen">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Weaves</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+<div class="container-fluid text-center blur greyscale">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><meta name="viewport" content="width=device-width, initial-scale=1"></p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/425px-Missing_avatar.svg.png" alt="Avatar" class="avatar">
+      <p> </p>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item"></li>
+        <li class="list-group-item">Dapisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+    </div>
+    <div id="main" class="col-sm-8 text-left"> 
+      <h1>Welcome</h1>
+      <p>MIDDLE PANNEL TO BE COMPLETED</p>
+      
+      <script>
+        //document.getElementById("main").innerHTML = getCookie("name");
+          <!-- Search form -->
+<div class="md-form">
+    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+</div>
+      </script>
+      
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>Message Pannel</p>
+      </div>
+      <div class="well">
+        <p>To Be Completed</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <footer class="container-fluid text-center">
+  <p>Under Direction of Dr. Husnu Narman</p>
+</footer>
+</div>
+  </div>
+
+   
+  <div id="modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                    <div class="form-group">
+                        <a href="" class="float-right">New user?</a>
+                        <label for="uname1">Username</label>
+                        <input type="text" class="form-control form-control-lg" name="uname1" id="uname1" required="">
+                        <div class="invalid-feedback">Oops, you missed this one.</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control form-control-lg" id="pwd1" required="" autocomplete="new-password">
+                        <div class="invalid-feedback">Enter your password too!</div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="rememberMe">
+                      <label class="custom-control-label" for="rememberMe">Remember me on this computer</label>
+                    </div>
+                    <div class="form-group py-4">
+                        <button id="close" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <button id="login" type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
